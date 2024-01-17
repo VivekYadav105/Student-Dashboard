@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, ActivityIndicator} from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 
 interface eventData {
@@ -23,6 +23,7 @@ export function UpcomingEvents() {
           setEvents(prev => [...prev, {...eventData, date: parsedTimestamp}]);
         });
       }
+      setLoading(false);
     };
     fetchEvents();
   }, []);
@@ -30,17 +31,19 @@ export function UpcomingEvents() {
     <View nativeID="upcoming-section" style={styles.setcionWrapper}>
       <Text
         style={styles.heading}>{`Upcoming Events (${events?.length})`}</Text>
-      {events.map((ele, index) => (
-        <View style={styles.wrapper} key={index}>
-          <Text style={styles.name}>{ele.name}</Text>
-          <View style={{alignItems: 'center', gap: 0}}>
-            <Text style={styles.month}>
-              {ele?.date.toLocaleString('default', {month: 'short'})}
-            </Text>
-            <Text style={styles.date}>{ele?.date.getDate()}</Text>
+      {loading && <ActivityIndicator />}
+      {!loading &&
+        events.map((ele, index) => (
+          <View style={styles.wrapper} key={index}>
+            <Text style={styles.name}>{ele.name}</Text>
+            <View style={{alignItems: 'center', gap: 0}}>
+              <Text style={styles.month}>
+                {ele?.date.toLocaleString('default', {month: 'short'})}
+              </Text>
+              <Text style={styles.date}>{ele?.date.getDate()}</Text>
+            </View>
           </View>
-        </View>
-      ))}
+        ))}
     </View>
   );
 }
@@ -48,6 +51,7 @@ export function UpcomingEvents() {
 const styles = StyleSheet.create({
   setcionWrapper: {
     gap: 10,
+    marginBottom: 150,
   },
   heading: {
     fontWeight: '500',

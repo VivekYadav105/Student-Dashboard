@@ -36,7 +36,7 @@ export const UserProvider = props => {
   function demoLogin() {
     auth()
       .signInWithEmailAndPassword('amit.patel@example.com', '1234567890')
-      .then(async(data) => {
+      .then(async data => {
         console.log(data);
         await fetchUserDetails(data.user.uid);
         console.log('user logged in successfully');
@@ -45,7 +45,7 @@ export const UserProvider = props => {
   }
 
   const fetchUserDetails = async userID => {
-    console.log(userID)
+    console.log(userID);
     if (userID) {
       const querySnapshot = await firestore()
         .collection('users')

@@ -1,5 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import {FlatList, StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+import {
+  FlatList,
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  ActivityIndicatorBase,
+  ActivityIndicator,
+} from 'react-native';
 import {Footer, Header, Report} from '../components';
 import firestore from '@react-native-firebase/firestore';
 import {useUserContext} from '../context/userContext';
@@ -31,6 +39,7 @@ export const ReportScreen: React.FC = () => {
           setReportData(prev => [...prev, newReport]);
         });
       }
+      setLoading(false);
     };
     fetchReports();
   }, []);
@@ -44,18 +53,23 @@ export const ReportScreen: React.FC = () => {
       <Header name={route.name} />
       <TouchableOpacity
         activeOpacity={0.8}
-        onPress={() => {navigation.navigate('AddReport')}}>
+        onPress={() => {
+          navigation.navigate('AddReport');
+        }}>
         <View style={styles.button}>
           <Text style={styles.fontSmall}>Add new Report</Text>
         </View>
       </TouchableOpacity>
-      <View style={{padding: 20, gap: 15}}>
-        <FlatList
-          data={reportData}
-          keyExtractor={item => item.name.toString()}
-          renderItem={({item}) => <Report url={item.url} name={item.name} />}
-        />
-      </View>
+      {loading && <ActivityIndicator size={100} color={"#9E77ED"} />}
+      {!loading && (
+        <View style={{padding: 20, gap: 15}}>
+          <FlatList
+            data={reportData}
+            keyExtractor={item => item.name.toString()}
+            renderItem={({item}) => <Report url={item.url} name={item.name} />}
+          />
+        </View>
+      )}
       <Footer activeIndex={0} />
     </>
   );
@@ -66,7 +80,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 18,
     fontFamily: 'Poppins-Regular',
-    textAlign:"center"
+    textAlign: 'center',
   },
   button: {borderWidth: 1, backgroundColor: '#978CD0', padding: 10},
 });

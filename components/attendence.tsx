@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, ActivityIndicator} from 'react-native';
 import {useUserContext} from '../context/userContext';
 import DropDownPicker from 'react-native-dropdown-picker';
 import {AnimatedCircularProgress} from 'react-native-circular-progress';
@@ -64,65 +64,73 @@ export const AttendenceSection: React.FC = () => {
 
   return (
     <View nativeID="attendence-section" style={styles.wrapper}>
-      <View>
-        <Text style={styles.fontSmall}>Attendence</Text>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            flexGrow: 0,
-            maxWidth: 100,
-          }}>
-          <View style={{elevation: 20, zIndex: 21}}>
-            <DropDownPicker
-              listMode="FLATLIST"
-              textStyle={{
-                color: 'white',
-                fontFamily: 'Poppins-Regular',
-                fontSize: 20,
-              }}
-              placeholderStyle={{color: 'white', fontFamily: 'Poppins-Regular'}}
-              containerStyle={{
-                padding: 0,
+      {loading && <ActivityIndicator />}
+      {!loading && (
+        <>
+          <View>
+            <Text style={styles.fontSmall}>Attendence</Text>
+            <View
+              style={{
+                flexDirection: 'row',
                 alignItems: 'center',
-                justifyContent: 'center',
-              }}
-              selectedItemLabelStyle={{
-                color: 'white',
-                fontFamily: 'Poppins-Regular',
-                backgroundColor: '#DCD9EF',
-              }}
-              style={styles.dropDownStyle}
-              showTickIcon={false}
-              value={month}
-              items={items}
-              open={expand}
-              setOpen={setExpand}
-              setValue={setMonth}
-              setItems={setItems}
-            />
+                flexGrow: 0,
+                maxWidth: 100,
+              }}>
+              <View>
+                <DropDownPicker
+                  listMode="SCROLLVIEW"
+                  textStyle={{
+                    color: 'white',
+                    fontFamily: 'Poppins-Regular',
+                    fontSize: 20,
+                  }}
+                  placeholderStyle={{
+                    color: 'white',
+                    fontFamily: 'Poppins-Regular',
+                  }}
+                  containerStyle={{
+                    padding: 0,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                  selectedItemLabelStyle={{
+                    color: 'white',
+                    fontFamily: 'Poppins-Regular',
+                    backgroundColor: '#DCD9EF',
+                  }}
+                  style={styles.dropDownStyle}
+                  showTickIcon={false}
+                  value={month}
+                  items={items}
+                  open={expand}
+                  setOpen={setExpand}
+                  setValue={setMonth}
+                  setItems={setItems}
+                />
+              </View>
+            </View>
           </View>
-        </View>
-      </View>
-      <View>
-        {attendence && (
-          <AnimatedCircularProgress
-            size={120}
-            lineCap="round"
-            width={12}
-            fill={Number(attendence?.attendenceData[month])}
-            duration={500}
-            tintColor="#ffffff"
-            onAnimationComplete={() => console.log('onAnimationComplete')}
-            backgroundColor="#DCD9EF23">
-            {() => (
-              <Text style={styles.fontSmall}>
-                {attendence?.attendenceData[month]}
-              </Text>
+          <View>
+            {attendence && (
+              <AnimatedCircularProgress
+                size={120}
+                lineCap="round"
+                width={12}
+                fill={Number(attendence?.attendenceData[month])}
+                duration={500}
+                tintColor="#ffffff"
+                onAnimationComplete={() => console.log('onAnimationComplete')}
+                backgroundColor="#DCD9EF23">
+                {() => (
+                  <Text style={styles.fontSmall}>
+                    {attendence?.attendenceData[month]}
+                  </Text>
+                )}
+              </AnimatedCircularProgress>
             )}
-          </AnimatedCircularProgress>
-        )}
-      </View>
+          </View>
+        </>
+      )}
     </View>
   );
 };
@@ -140,10 +148,8 @@ const styles = StyleSheet.create({
     borderWidth: 0,
     width: 140,
     alignSelf: 'flex-start',
-    elevation: 201,
-    zIndex: 200,
-    flexGrow:0,
-    flexShrink:1,
+    flexGrow: 0,
+    flexShrink: 1,
     padding: 0,
     alignItems: 'center',
   },

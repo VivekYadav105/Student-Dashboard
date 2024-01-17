@@ -1,11 +1,26 @@
-import React from 'react';
-import {TouchableOpacity, View, Text, StyleSheet} from 'react-native';
+import React, {useState} from 'react';
+import {
+  TouchableOpacity,
+  View,
+  Text,
+  StyleSheet,
+  ActivityIndicator,
+} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {useUserContext} from '../context/userContext';
 
 export const AuthScreen: React.FC = () => {
   const navigation = useNavigation();
   const {demoLogin} = useUserContext();
+
+  function handleDemoLogin() {
+    setLoading(true);
+    demoLogin();
+    setLoading(false);
+  }
+
+  const [loading, setLoading] = useState(false);
+
   return (
     <View style={styles.wrapper}>
       <TouchableOpacity
@@ -20,7 +35,7 @@ export const AuthScreen: React.FC = () => {
       <TouchableOpacity
         activeOpacity={0.8}
         onPress={() => {
-          demoLogin();
+          handleDemoLogin();
         }}>
         <View style={styles.button}>
           <Text style={styles.fontSmall}>Demo Login</Text>
@@ -34,6 +49,7 @@ export const AuthScreen: React.FC = () => {
           <Text style={styles.underlinedText}>Not a user? SignUp</Text>
         </View>
       </TouchableOpacity>
+      {loading && <ActivityIndicator />}
     </View>
   );
 };
