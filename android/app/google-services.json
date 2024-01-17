@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "729470837247",
+    "project_id": "tensor-blue-student-dash",
+    "storage_bucket": "tensor-blue-student-dash.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:729470837247:android:8d53a969146a793d68c7ca",
+        "android_client_info": {
+          "package_name": "com.studentdash"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAf1lS7QOgdx1L3g8OOLRhdzcni0vhZCB8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
