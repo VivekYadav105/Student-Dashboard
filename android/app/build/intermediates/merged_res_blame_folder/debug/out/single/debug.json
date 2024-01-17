@@ -1,0 +1,98 @@
+[
+    {
+        "merged": "com.studentdash.app-merged_res-42:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "com.studentdash.app-main-44:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.studentdash.app-merged_res-42:/drawable_notifications_unread.png.flat",
+        "source": "com.studentdash.app-main-44:/drawable/notifications_unread.png"
+    },
+    {
+        "merged": "com.studentdash.app-merged_res-42:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.studentdash.app-main-44:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.studentdash.app-merged_res-42:/drawable_avatar.png.flat",
+        "source": "com.studentdash.app-main-44:/drawable/avatar.png"
+    },
+    {
+        "merged": "com.studentdash.app-merged_res-42:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.studentdash.app-main-44:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.studentdash.app-merged_res-42:/drawable_summarize.png.flat",
+        "source": "com.studentdash.app-main-44:/drawable/summarize.png"
+    },
+    {
+        "merged": "com.studentdash.app-merged_res-42:/drawable_account_box.png.flat",
+        "source": "com.studentdash.app-main-44:/drawable/account_box.png"
+    },
+    {
+        "merged": "com.studentdash.app-merged_res-42:/drawable_cloud_download.png.flat",
+        "source": "com.studentdash.app-main-44:/drawable/cloud_download.png"
+    },
+    {
+        "merged": "com.studentdash.app-merged_res-42:/drawable_credit_card.png.flat",
+        "source": "com.studentdash.app-main-44:/drawable/credit_card.png"
+    },
+    {
+        "merged": "com.studentdash.app-merged_res-42:/drawable_rn_edit_text_material.xml.flat",
+        "source": "com.studentdash.app-main-44:/drawable/rn_edit_text_material.xml"
+    },
+    {
+        "merged": "com.studentdash.app-merged_res-42:/drawable_calendar_today.png.flat",
+        "source": "com.studentdash.app-main-44:/drawable/calendar_today.png"
+    },
+    {
+        "merged": "com.studentdash.app-merged_res-42:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.studentdash.app-main-44:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.studentdash.app-merged_res-42:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "com.studentdash.app-main-44:/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.studentdash.app-merged_res-42:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "com.studentdash.app-main-44:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.studentdash.app-merged_res-42:/drawable_arrow_back_ios.png.flat",
+        "source": "com.studentdash.app-main-44:/drawable/arrow_back_ios.png"
+    },
+    {
+        "merged": "com.studentdash.app-merged_res-42:/drawable_home.png.flat",
+        "source": "com.studentdash.app-main-44:/drawable/home.png"
+    },
+    {
+        "merged": "com.studentdash.app-merged_res-42:/drawable_article.png.flat",
+        "source": "com.studentdash.app-main-44:/drawable/article.png"
+    },
+    {
+        "merged": "com.studentdash.app-merged_res-42:/drawable_square_foot.png.flat",
+        "source": "com.studentdash.app-main-44:/drawable/square_foot.png"
+    },
+    {
+        "merged": "com.studentdash.app-merged_res-42:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.studentdash.app-main-44:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.studentdash.app-merged_res-42:/drawable_description.png.flat",
+        "source": "com.studentdash.app-main-44:/drawable/description.png"
+    },
+    {
+        "merged": "com.studentdash.app-merged_res-42:/drawable_menu.png.flat",
+        "source": "com.studentdash.app-main-44:/drawable/menu.png"
+    },
+    {
+        "merged": "com.studentdash.app-merged_res-42:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.studentdash.app-main-44:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.studentdash.app-merged_res-42:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "com.studentdash.app-main-44:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.studentdash.app-merged_res-42:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "com.studentdash.app-main-44:/mipmap-xhdpi/ic_launcher_round.png"
+    }
+]

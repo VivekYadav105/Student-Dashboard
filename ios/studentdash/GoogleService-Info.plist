@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>729470837247-o8dbngdapultbq7tc6u8vangrn2chgub.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.729470837247-o8dbngdapultbq7tc6u8vangrn2chgub</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>729470837247-0knulda5pvh2p9kn6987v7q49bq3dot2.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDj0WM_ucz5OxapPzoBmGihf7RU0lDkPAc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>729470837247</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>org.reactjs.native.example.studentdash</string>
+	<key>PROJECT_ID</key>
+	<string>tensor-blue-student-dash</string>
+	<key>STORAGE_BUCKET</key>
+	<string>tensor-blue-student-dash.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:729470837247:ios:53a9c6e2c009227f68c7ca</string>
+</dict>
+</plist>

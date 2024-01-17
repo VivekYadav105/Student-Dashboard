@@ -14,22 +14,6 @@ export const AddReport: React.FC = () => {
   const fsCloud = storage();
   const bucketUrl = 'gs://tensor-blue-student-dash.appspot.com';
 
-  const checkAndRequestPermission = async () => {
-    try {
-      const status = await request(PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE);
-
-      if (status === 'granted') {
-        // Permission granted, proceed with document picker
-        await UploadFiles();
-      } else {
-        // Permission denied
-        console.log('Permission denied');
-      }
-    } catch (error) {
-      console.error('Error checking or requesting permission:', error);
-    }
-  };
-
   async function UploadFiles() {
     try {
       if (reports.length === 0) {
