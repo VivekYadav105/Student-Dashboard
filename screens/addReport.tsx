@@ -1,21 +1,12 @@
 import React, {useState} from 'react';
-import {
-  TouchableOpacity,
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  PermissionsAndroid,
-  ToastAndroid,
-  Platform,
-} from 'react-native';
+import {TouchableOpacity, View, Text, StyleSheet, Image} from 'react-native';
 import {useRoute} from '@react-navigation/native';
 import {Header} from '../components';
 import DocumentPicker, {
   DocumentPickerResponse,
 } from 'react-native-document-picker';
 import storage from '@react-native-firebase/storage';
-import RNFetchBlob from 'rn-fetch-blob';
+import {request, PERMISSIONS} from 'react-native-permissions';
 
 export const AddReport: React.FC = () => {
   const route = useRoute();
@@ -23,14 +14,21 @@ export const AddReport: React.FC = () => {
   const fsCloud = storage();
   const bucketUrl = 'gs://tensor-blue-student-dash.appspot.com';
 
-  async function getPathForFirebaseStorage(uri) {
-    if (Platform.OS === 'ios') {
-      return uri;
+  const checkAndRequestPermission = async () => {
+    try {
+      const status = await request(PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE);
+
+      if (status === 'granted') {
+        // Permission granted, proceed with document picker
+        await UploadFiles();
+      } else {
+        // Permission denied
+        console.log('Permission denied');
+      }
+    } catch (error) {
+      console.error('Error checking or requesting permission:', error);
     }
-    const stat = await RNFetchBlob.fs.stat(uri);
-    console.log('stat---', stat);
-    return stat.path;
-  }
+  };
 
   async function UploadFiles() {
     try {
@@ -38,12 +36,11 @@ export const AddReport: React.FC = () => {
         return alert('No file selected to upload');
       }
       const uploadPromises = reports.map(async ele => {
-        const fileRef = fsCloud.ref(`uploads/${ele.name}`);
+        const fileRef = fsCloud.ref(`${bucketUrl}uploads/${ele.name}`);
         console.log(fileRef);
         const res = fileRef.putFile(ele.uri);
 
         res.on('state_changed', snapshot => {
-          // Handle progress updates if needed
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log(`Upload is ${progress}% done`);
