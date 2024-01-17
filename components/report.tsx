@@ -1,6 +1,14 @@
-import React from 'react';
-import {View, StyleSheet, Image, Text, TouchableOpacity} from 'react-native';
-import storage from '@react-native-firebase/firestore';
+import React, {useState} from 'react';
+import {
+  View,
+  StyleSheet,
+  Image,
+  Text,
+  TouchableOpacity,
+  useWindowDimensions,
+} from 'react-native';
+import {err} from 'react-native-svg';
+import RNFetchBlob from 'rn-fetch-blob';
 
 interface ReportProps {
   url: string;
@@ -9,16 +17,33 @@ interface ReportProps {
 }
 
 export const Report: React.FC<ReportProps> = props => {
+  const {width} = useWindowDimensions();
+  const [status, setStatus] = useState();
   async function handleDownload() {
+    try {
+      console.log("called")
+      console.log(props.url)
+      const res = await RNFetchBlob.config({
+        fileCache: true,
+      }).fetch('GET', props.url);
+      const data = await res.path();
+      console.log('file saved to', data);
+      // eslint-disable-next-line no-catch-shadow
+    } catch (err) {
+      console.log(err);
+    }
   }
+  function handleFileView() {}
   return (
     <View style={styles.wrapper}>
-      <View style={styles.imageWrapper}>
-        <Image source={require('../assets/description.png')} />
-      </View>
-      <View style={{flexDirection: 'row', flexGrow: 1, paddingLeft: 10}}>
-        <Text style={{color: 'black', fontSize: 20}}>{props.name}</Text>
-      </View>
+      <TouchableOpacity style={[styles.viewButton, {width: width - 150}]}>
+        <View style={styles.imageWrapper}>
+          <Image source={require('../assets/description.png')} />
+        </View>
+        <View style={{flexDirection: 'row', flexGrow: 1, paddingLeft: 10}}>
+          <Text style={{color: 'black', fontSize: 20}}>{props.name}</Text>
+        </View>
+      </TouchableOpacity>
       <View>
         {props.status && (
           <Text style={{color: 'black', fontWeight: '500', fontSize: 20}}>
@@ -26,13 +51,14 @@ export const Report: React.FC<ReportProps> = props => {
           </Text>
         )}
         {!props.status && (
-          <TouchableOpacity
-            onPress={() => {
-              handleDownload();
-            }}
-            style={{borderWidth: 1, padding: 10}}>
-            <Image source={require('../assets/cloud_download.png')} />
-          </TouchableOpacity>
+          <View style={{flexDirection: 'row', gap: 5, padding: 10}}>
+            <TouchableOpacity
+              onPress={() => {
+                handleDownload();
+              }}>
+              <Image source={require('../assets/cloud_download.png')} />
+            </TouchableOpacity>
+          </View>
         )}
       </View>
     </View>
@@ -50,6 +76,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     borderRadius: 15,
+  },
+  viewButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    maxWidth: 200,
   },
   imageWrapper: {
     width: 50,

@@ -6,7 +6,7 @@ import DocumentPicker, {
   DocumentPickerResponse,
 } from 'react-native-document-picker';
 import storage from '@react-native-firebase/storage';
-import {request, PERMISSIONS} from 'react-native-permissions';
+import {PermissionsAndroid, Platform} from 'react-native';
 
 export const AddReport: React.FC = () => {
   const route = useRoute();
@@ -19,6 +19,16 @@ export const AddReport: React.FC = () => {
       if (reports.length === 0) {
         return alert('No file selected to upload');
       }
+
+      if (Platform.OS === 'android') {
+        await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+        );
+        await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
+        );
+      }
+
       const uploadPromises = reports.map(async ele => {
         const fileRef = fsCloud.ref(`${bucketUrl}uploads/${ele.name}`);
         console.log(fileRef);
@@ -76,7 +86,7 @@ export const AddReport: React.FC = () => {
         </View>
         <View
           nativeID="selectedFilesWrapper"
-          style={{alignItems: 'center', gap: 2, paddingTop: 10}}>
+          style={styles.selectedItemsWrapper}>
           {reports?.length == 0 && (
             <Text
               style={[styles.fontSmall, {color: 'black', textAlign: 'center'}]}>
@@ -145,4 +155,5 @@ const styles = StyleSheet.create({
     width: 250,
     gap: 10,
   },
+  selectedItemsWrapper: {alignItems: 'center', gap: 2, paddingTop: 10},
 });

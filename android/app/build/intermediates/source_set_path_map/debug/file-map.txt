@@ -53,3 +53,4 @@ com.studentdash.app-packaged_res-51 C:\Users\vivek\Desktop\studentdash\node_modu
 com.studentdash.app-packaged_res-52 C:\Users\vivek\Desktop\studentdash\node_modules\react-native-safe-area-context\android\build\intermediates\packaged_res\debug
 com.studentdash.app-packaged_res-53 C:\Users\vivek\Desktop\studentdash\node_modules\react-native-screens\android\build\intermediates\packaged_res\debug
 com.studentdash.app-packaged_res-54 C:\Users\vivek\Desktop\studentdash\node_modules\react-native-svg\android\build\intermediates\packaged_res\debug
+com.studentdash.app-packaged_res-55 C:\Users\vivek\Desktop\studentdash\node_modules\rn-fetch-blob\android\build\intermediates\packaged_res\debug
