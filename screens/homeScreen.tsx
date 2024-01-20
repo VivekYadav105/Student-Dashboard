@@ -14,7 +14,7 @@ export const HomeScreen: React.FC = () => {
     <>
       <Header name={route.name} />
       <ScrollView
-        nestedScrollEnabled={true} 
+        nestedScrollEnabled={true}
         contentContainerStyle={{flexGrow: 1}}
         style={{
           paddingHorizontal: 20,

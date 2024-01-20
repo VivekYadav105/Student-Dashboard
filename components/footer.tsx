@@ -1,27 +1,38 @@
 import React from 'react';
-import {View, useWindowDimensions, Image, TouchableOpacity,StyleSheet} from 'react-native';
+import {
+  View,
+  useWindowDimensions,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+} from 'react-native';
 import {useNavigation, useRoute} from '@react-navigation/native';
 export const Footer: React.FC<{
   activeIndex: number;
 }> = props => {
   const {width} = useWindowDimensions();
   const navigation = useNavigation();
-  const route = useRoute()
+  const route = useRoute();
   return (
     <View
-      style={[styles.wrapper,{
-        width:width
-      }]}>
+      style={[
+        styles.wrapper,
+        {
+          width: width,
+        },
+      ]}>
       <View
-        style={[{
-          width: width - 40,
-          height: 70,
-          borderRadius: 20,
-          backgroundColor: 'white',
-          justifyContent: 'space-evenly',
-          flexDirection: 'row',
-          alignItems: 'center',
-        }]}>
+        style={[
+          {
+            width: width - 40,
+            height: 70,
+            borderRadius: 20,
+            backgroundColor: 'white',
+            justifyContent: 'space-evenly',
+            flexDirection: 'row',
+            alignItems: 'center',
+          },
+        ]}>
         <TouchableOpacity
           onPress={() => {
             navigation.navigate('Home');
@@ -31,7 +42,7 @@ export const Footer: React.FC<{
               styles.buttonView,
               {
                 backgroundColor:
-                  route.name==="Home" ? '#978CD0' : 'transparent',
+                  route.name === 'Home' ? '#978CD0' : 'transparent',
               },
             ]}>
             <Image source={require('../assets/home.png')} />
@@ -46,7 +57,7 @@ export const Footer: React.FC<{
               styles.buttonView,
               {
                 backgroundColor:
-                route.name==="Report"  ? '#978CD0' : 'transparent',
+                  route.name === 'Report' ? '#978CD0' : 'transparent',
               },
             ]}>
             <Image source={require('../assets/calendar_today.png')} />
@@ -61,7 +72,7 @@ export const Footer: React.FC<{
               styles.buttonView,
               {
                 backgroundColor:
-                route.name==="Profile"  ? '#978CD0' : 'transparent',
+                  route.name === 'Profile' ? '#978CD0' : 'transparent',
               },
             ]}>
             <Image source={require('../assets/account_box.png')} />
@@ -80,12 +91,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  wrapper:{
+  wrapper: {
     backgroundColor: 'transparent',
     alignItems: 'center',
     maxWidth: 400,
     position: 'absolute',
     bottom: 25,
     height: 60,
-  }
+  },
 });

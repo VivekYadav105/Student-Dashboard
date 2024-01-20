@@ -65,6 +65,8 @@ buck-out
 # Android
 .idea
 .gradle
+android/build
+android/build/*
 local.properties
 *.iml
 /packages/react-native/android/*

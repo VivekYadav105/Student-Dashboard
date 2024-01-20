@@ -7,8 +7,6 @@ import {
   TouchableOpacity,
   useWindowDimensions,
 } from 'react-native';
-import {err} from 'react-native-svg';
-import RNFetchBlob from 'rn-fetch-blob';
 
 interface ReportProps {
   url: string;
@@ -21,13 +19,8 @@ export const Report: React.FC<ReportProps> = props => {
   const [status, setStatus] = useState();
   async function handleDownload() {
     try {
-      console.log("called")
-      console.log(props.url)
-      const res = await RNFetchBlob.config({
-        fileCache: true,
-      }).fetch('GET', props.url);
-      const data = await res.path();
-      console.log('file saved to', data);
+      console.log('called');
+      console.log(props.url);
       // eslint-disable-next-line no-catch-shadow
     } catch (err) {
       console.log(err);

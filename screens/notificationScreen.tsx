@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {FlatList, ScrollView, View} from 'react-native';
+import {FlatList, View} from 'react-native';
 import {Header, Notification} from '../components';
 import firestore from '@react-native-firebase/firestore';
 import {useUserContext} from '../context/userContext';

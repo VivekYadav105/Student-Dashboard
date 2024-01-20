@@ -1,46 +1,31 @@
 import React, {useState} from 'react';
 import {TouchableOpacity, View, Text, StyleSheet, Image} from 'react-native';
+import {utils} from '@react-native-firebase/app';
 import {useRoute} from '@react-navigation/native';
 import {Header} from '../components';
+import RNFS from 'react-native-fs';
 import DocumentPicker, {
   DocumentPickerResponse,
 } from 'react-native-document-picker';
 import storage from '@react-native-firebase/storage';
-import {PermissionsAndroid, Platform} from 'react-native';
 
 export const AddReport: React.FC = () => {
   const route = useRoute();
   const [reports, setReports] = useState<DocumentPickerResponse[]>([]);
   const fsCloud = storage();
+  const [progress, setProgress] = useState<number>(0);
   const bucketUrl = 'gs://tensor-blue-student-dash.appspot.com';
 
   async function UploadFiles() {
     try {
-      if (reports.length === 0) {
-        return alert('No file selected to upload');
-      }
-
-      if (Platform.OS === 'android') {
-        await PermissionsAndroid.request(
-          PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-        );
-        await PermissionsAndroid.request(
-          PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
-        );
-      }
-
-      const uploadPromises = reports.map(async ele => {
-        const fileRef = fsCloud.ref(`${bucketUrl}uploads/${ele.name}`);
-        console.log(fileRef);
-        const res = fileRef.putFile(ele.uri);
-
-        res.on('state_changed', snapshot => {
-          const progress =
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log(`Upload is ${progress}% done`);
-        });
-        const results = await Promise.all(uploadPromises);
-        console.log(results);
+      const fileRef = fsCloud.ref(`/reports/${reports[0]?.name}`);
+      const uri = await convertToFilePath(reports[0]);
+      const res = fileRef.putFile(uri);
+      res.on('state_changed', snapshot => {
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        setProgress(progress);
+        console.log(`Upload is ${progress}% done`);
       });
     } catch (err) {
       console.log(err);
@@ -51,7 +36,7 @@ export const AddReport: React.FC = () => {
     try {
       const response = await DocumentPicker.pick({
         presentationStyle: 'fullScreen',
-        allowMultiSelection: true,
+        allowMultiSelection: false,
         type: [DocumentPicker.types.allFiles],
       });
       setReports(response);
@@ -61,6 +46,19 @@ export const AddReport: React.FC = () => {
         throw err;
       }
     }
+  }
+
+  async function convertToFilePath(ele) {
+    console.log(ele)
+    if (ele.uri.startsWith('content://')) {
+      const urlComponents = ele.uri.split('/');
+      console.log(urlComponents, ele.name);
+      const fileNameAndExtension = ele.name;
+      const destPath = `${RNFS.TemporaryDirectoryPath}/${fileNameAndExtension}`;
+      await RNFS.copyFile(ele.uri, destPath);
+      return destPath;
+    }
+    return url;
   }
 
   return (
@@ -87,7 +85,7 @@ export const AddReport: React.FC = () => {
         <View
           nativeID="selectedFilesWrapper"
           style={styles.selectedItemsWrapper}>
-          {reports?.length == 0 && (
+          {reports?.length === 0 && (
             <Text
               style={[styles.fontSmall, {color: 'black', textAlign: 'center'}]}>
               No files selected
@@ -101,7 +99,7 @@ export const AddReport: React.FC = () => {
               <TouchableOpacity
                 onPress={() => {
                   setReports(prev =>
-                    prev.filter((ele, indexele) => index !== indexele),
+                    prev.filter((_ele, indexele) => index !== indexele),
                   );
                 }}>
                 <View>
@@ -115,6 +113,7 @@ export const AddReport: React.FC = () => {
               </TouchableOpacity>
             </View>
           ))}
+          <Text>{progress}</Text>
         </View>
       </View>
     </>

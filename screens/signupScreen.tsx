@@ -6,7 +6,6 @@ export const SignupScreen: FC<{}> = ({}): ReactElement => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [email, setEmail] = useState('');
 
-
   return (
     <>
       <TextInput

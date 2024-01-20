@@ -26,6 +26,7 @@ export const AuthScreen: React.FC = () => {
       <TouchableOpacity
         activeOpacity={0.8}
         onPress={() => {
+          // eslint-disable-next-line no-alert
           alert('hello');
         }}>
         <View style={styles.button}>
