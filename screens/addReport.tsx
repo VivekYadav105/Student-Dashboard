@@ -3,7 +3,7 @@ import {TouchableOpacity, View, Text, StyleSheet, Image} from 'react-native';
 import {utils} from '@react-native-firebase/app';
 import {useRoute} from '@react-navigation/native';
 import {Header} from '../components';
-import RNFS from 'react-native-fs';
+import RNFS, {uploadFiles} from 'react-native-fs';
 import DocumentPicker, {
   DocumentPickerResponse,
 } from 'react-native-document-picker';
@@ -14,12 +14,11 @@ export const AddReport: React.FC = () => {
   const [reports, setReports] = useState<DocumentPickerResponse[]>([]);
   const fsCloud = storage();
   const [progress, setProgress] = useState<number>(0);
-  const bucketUrl = 'gs://tensor-blue-student-dash.appspot.com';
 
-  async function UploadFiles() {
+  async function UploadFile(ele: DocumentPickerResponse) {
     try {
-      const fileRef = fsCloud.ref(`/reports/${reports[0]?.name}`);
-      const uri = await convertToFilePath(reports[0]);
+      const fileRef = fsCloud.ref(`/reports/${ele.name}`);
+      const uri = await convertToFilePath(ele);
       const res = fileRef.putFile(uri);
       res.on('state_changed', snapshot => {
         const progress =
@@ -32,11 +31,16 @@ export const AddReport: React.FC = () => {
     }
   }
 
+  async function UploadFiles() {
+    const result = await Promise.all(reports.map(ele => UploadFile(ele)));
+    console.log(result);
+  }
+
   async function selectFiles() {
     try {
       const response = await DocumentPicker.pick({
         presentationStyle: 'fullScreen',
-        allowMultiSelection: false,
+        allowMultiSelection: true,
         type: [DocumentPicker.types.allFiles],
       });
       setReports(response);
@@ -48,8 +52,7 @@ export const AddReport: React.FC = () => {
     }
   }
 
-  async function convertToFilePath(ele) {
-    console.log(ele)
+  async function convertToFilePath(ele: DocumentPickerResponse) {
     if (ele.uri.startsWith('content://')) {
       const urlComponents = ele.uri.split('/');
       console.log(urlComponents, ele.name);
@@ -58,7 +61,7 @@ export const AddReport: React.FC = () => {
       await RNFS.copyFile(ele.uri, destPath);
       return destPath;
     }
-    return url;
+    return ele.uri;
   }
 
   return (

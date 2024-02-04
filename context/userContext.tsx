@@ -1,6 +1,7 @@
 import React, {createContext, useContext, useEffect, useState} from 'react';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
+import {useNavigation} from '@react-navigation/native';
 
 interface userInterface {
   name: string;
@@ -18,6 +19,7 @@ interface UserContextProps {
   user: userInterface | null;
   updateUser: (i: userInterface) => void;
   demoLogin: () => void;
+  logOut: () => void;
 }
 
 const UserContext = createContext<UserContextProps | null>(null);
@@ -40,6 +42,17 @@ export const UserProvider = props => {
         console.log(data);
         await fetchUserDetails(data.user.uid);
         console.log('user logged in successfully');
+      })
+      .catch(err => console.log(err));
+  }
+
+  function logOut() {
+    console.log('insisde');
+    auth()
+      .signOut()
+      .then(data => {
+        console.log(data);
+        setUser(null);
       })
       .catch(err => console.log(err));
   }
@@ -87,7 +100,7 @@ export const UserProvider = props => {
   }, [user]);
 
   return (
-    <UserContext.Provider value={{user, updateUser, demoLogin}}>
+    <UserContext.Provider value={{user, updateUser, demoLogin, logOut}}>
       {props.children}
     </UserContext.Provider>
   );

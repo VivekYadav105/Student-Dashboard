@@ -1,6 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Header, Footer} from './components';
 import {
   AddReport,
   AuthScreen,
@@ -8,7 +7,6 @@ import {
   NotificationScreen,
   ProfileScreen,
   ReportScreen,
-  SignupScreen,
 } from './screens';
 import {useUserContext} from './context/userContext';
 
@@ -35,7 +33,6 @@ export const Router = () => {
         ) : (
           <Stack.Group>
             <Stack.Screen name="Auth" component={AuthScreen} />
-            <Stack.Screen name="SignUp" component={SignupScreen} />
           </Stack.Group>
         )}
       </Stack.Navigator>

@@ -7,7 +7,15 @@ module.exports = {
     './context/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#978CD0',
+        secondary: '#D9DEEF',
+      },
+      fontFamily: {
+        poppins: 'Poppins-Regular',
+      },
+    },
   },
   plugins: [],
 };

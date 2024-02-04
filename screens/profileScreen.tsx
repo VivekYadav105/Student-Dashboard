@@ -1,11 +1,11 @@
 import React from 'react';
-import {View, Image, Text, StyleSheet} from 'react-native';
+import {View, Image, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {useUserContext} from '../context/userContext';
 import {useRoute} from '@react-navigation/native';
 import {Header, Footer} from '../components';
 
 export const ProfileScreen: React.FC = () => {
-  const {user} = useUserContext();
+  const {user, logOut} = useUserContext();
   const route = useRoute();
   return (
     <>
@@ -73,6 +73,24 @@ export const ProfileScreen: React.FC = () => {
           <View style={styles.fontWrapper}>
             <Text style={styles.fontStyle}>Address</Text>
             <Text style={styles.fontStyle}>{user?.address}</Text>
+          </View>
+        </View>
+        <View id="profile-options">
+          <View className="flex-row items-center justify-between pr-10 bg-[#D9DEEF08]">
+            <Text className="p-1 px-2 text-lg font-bold text-purple-500">
+              More Options
+            </Text>
+            <Text>{'>'}</Text>
+          </View>
+          <View className="items-center p-[10px]">
+            <TouchableOpacity
+              onPress={() => {
+                logOut();
+              }}>
+              <View>
+                <Text>Log Out</Text>
+              </View>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
