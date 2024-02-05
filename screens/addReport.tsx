@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
 import {TouchableOpacity, View, Text, StyleSheet, Image} from 'react-native';
-import {utils} from '@react-native-firebase/app';
 import {useRoute} from '@react-navigation/native';
 import {Header} from '../components';
-import RNFS, {uploadFiles} from 'react-native-fs';
+import RNFS from 'react-native-fs';
 import DocumentPicker, {
   DocumentPickerResponse,
 } from 'react-native-document-picker';

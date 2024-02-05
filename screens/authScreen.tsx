@@ -1,5 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import config from './auth.fields.config';
+import {Controller, useForm} from 'react-hook-form';
 import {
   TouchableOpacity,
   View,
@@ -8,7 +9,8 @@ import {
   ActivityIndicator,
   TextInput,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {useNavigation, ParamListBase} from '@react-navigation/native';
 import {useUserContext} from '../context/userContext';
 
 interface fieldType {
@@ -18,27 +20,28 @@ interface fieldType {
 }
 
 export const AuthScreen: React.FC = () => {
-  const navigation = useNavigation();
+  const {navigate} = useNavigation<NativeStackNavigationProp<ParamListBase>>();
   const {demoLogin} = useUserContext();
-  const [page, setPage] = useState(0);
+  const {
+    handleSubmit,
+    control,
+    formState: {errors},
+  } = useForm();
 
   function handleDemoLogin() {
     setLoading(true);
-    demoLogin();
+    demoLogin().then(() => navigate('Home'));
     setLoading(false);
+  }
+
+  function handleLogin(data) {
+    console.log('called');
+    console.log(data);
   }
 
   const [loading, setLoading] = useState(false);
 
-  const [userDetails, setUserDetails] = useState({});
-
   const [pageType, setPageType] = useState<string>('');
-
-  useEffect(() => {
-    if (config) {
-      console.log(config[pageType]);
-    }
-  }, [pageType]);
 
   const authElement = (
     <View className="max-w-sm bg-secondary flex-1 w-screen p-5 pt-20">
@@ -58,28 +61,46 @@ export const AuthScreen: React.FC = () => {
                 {pageType &&
                   config[pageType].fields.map(
                     (ele: fieldType, index: number) => (
-                      <TextInput
-                        placeholder={ele.placeholder}
-                        key={index}
-                        className={`bg-white border-[1px] ${
-                          config[pageType].fields.length === 1
-                            ? 'rounded-xl'
-                            : index === 0
-                            ? 'rounded-t-xl'
-                            : index === config[pageType].fields.length - 1
-                            ? 'rounded-b-xl'
-                            : ''
-                        } font-medium font-poppins border-gray-200 m-0 p-3 pl-5 text-[16px] text-blue-950 max-w-sm`}
-                      />
+                      <React.Fragment key={index}>
+                        <Controller
+                          name={ele.name}
+                          control={control}
+                          rules={{
+                            required: true,
+                          }}
+                          render={({field: {onChange, onBlur, value}}) => (
+                            <TextInput
+                              placeholder={ele.placeholder}
+                              // eslint-disable-next-line @typescript-eslint/no-shadow
+                              onChangeText={value => onChange(value)}
+                              onBlur={onBlur}
+                              value={value}
+                              className={`bg-white border-[1px] ${
+                                config[pageType].fields.length === 1
+                                  ? 'rounded-xl'
+                                  : index === 0
+                                  ? 'rounded-t-xl'
+                                  : index === config[pageType].fields.length - 1
+                                  ? 'rounded-b-xl'
+                                  : ''
+                              } font-medium font-poppins border-gray-200 m-0 p-3 pl-5 text-[16px] text-blue-950 max-w-sm`}
+                            />
+                          )}
+                        />
+                        {errors &&
+                          errors[ele.name] &&
+                          errors[ele.name]?.message && (
+                            <Text>{errors[ele.name]?.message || ''}</Text>
+                          )}
+                      </React.Fragment>
                     ),
                   )}
 
                 <View className="flex-row w-full m-auto pt-5 gap-3">
+                  {/* <Button title="SUBMIT" onPress={handleSubmit(handleLogin)} /> */}
                   <TouchableOpacity
                     activeOpacity={0.8}
-                    onPress={() => {
-                      handleDemoLogin();
-                    }}>
+                    onPress={handleSubmit(handleLogin)}>
                     <View className="bg-violet-800" style={styles.button}>
                       <Text style={styles.fontSmall}>
                         {config[pageType].primaryBtn.displayText}
@@ -92,7 +113,6 @@ export const AuthScreen: React.FC = () => {
                     <TouchableOpacity
                       activeOpacity={0.8}
                       onPress={() => {
-                        setUserDetails({});
                         setPageType(config[pageType].secondaryBtn.pageType);
                       }}>
                       <View className="text-violet-800 items-end whitespace-nowrap grow-0 flex-0 ml-auto hover:border-violet-400 border-b-2">

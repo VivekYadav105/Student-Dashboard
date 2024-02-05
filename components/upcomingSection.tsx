@@ -9,21 +9,25 @@ interface eventData {
 }
 
 export function UpcomingEvents() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [events, setEvents] = useState<eventData[]>([]);
   useEffect(() => {
     const fetchEvents = async () => {
-      setLoading(true);
-      const eventsSnapshot = await firestore().collection('events').get();
-      if (eventsSnapshot.size > 0) {
-        eventsSnapshot.forEach(ele => {
-          const eventData = ele.data() as eventData;
-          const timeStamp = eventData.date;
-          const parsedTimestamp = timeStamp.toDate();
-          setEvents(prev => [...prev, {...eventData, date: parsedTimestamp}]);
-        });
+      try {
+        setLoading(true);
+        const eventsSnapshot = await firestore().collection('events').get();
+        if (eventsSnapshot.size > 0) {
+          eventsSnapshot.forEach(ele => {
+            const eventData = ele.data() as eventData;
+            const timeStamp = eventData.date;
+            const parsedTimestamp = timeStamp.toDate();
+            setEvents(prev => [...prev, {...eventData, date: parsedTimestamp}]);
+          });
+        }
+        setLoading(false);
+      } catch (err) {
+        console.log(err);
       }
-      setLoading(false);
     };
     fetchEvents();
   }, []);

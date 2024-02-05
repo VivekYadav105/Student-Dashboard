@@ -1,7 +1,6 @@
 import React, {createContext, useContext, useEffect, useState} from 'react';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
-import {useNavigation} from '@react-navigation/native';
 
 interface userInterface {
   name: string;
@@ -18,7 +17,7 @@ interface userInterface {
 interface UserContextProps {
   user: userInterface | null;
   updateUser: (i: userInterface) => void;
-  demoLogin: () => void;
+  demoLogin: () => Promise<boolean | Error>;
   logOut: () => void;
 }
 
@@ -36,14 +35,19 @@ export const UserProvider = props => {
   }
 
   function demoLogin() {
-    auth()
-      .signInWithEmailAndPassword('amit.patel@example.com', '1234567890')
-      .then(async data => {
-        console.log(data);
-        await fetchUserDetails(data.user.uid);
-        console.log('user logged in successfully');
-      })
-      .catch(err => console.log(err));
+    return new Promise<boolean | Error>((resolve, reject) => {
+      auth()
+        .signInWithEmailAndPassword('amit.patel@example.com', '1234567890')
+        .then(async data => {
+          console.log(data);
+          await fetchUserDetails(data.user.uid);
+          console.log('user logged in successfully');
+          return resolve(true);
+        })
+        .catch(err => {
+          return reject(err);
+        });
+    });
   }
 
   function logOut() {
@@ -58,24 +62,28 @@ export const UserProvider = props => {
   }
 
   const fetchUserDetails = async userID => {
-    console.log(userID);
-    if (userID) {
-      const querySnapshot = await firestore()
-        .collection('users')
-        .where('userID', '==', userID)
-        .get();
+    try {
+      console.log(userID);
+      if (userID) {
+        const querySnapshot = await firestore()
+          .collection('users')
+          .where('userID', '==', userID)
+          .get();
 
-      if (querySnapshot.size > 0) {
-        const userData = querySnapshot.docs[0].data() as
-          | userInterface
-          | undefined;
-        if (userData) {
-          updateUser(userData);
+        if (querySnapshot.size > 0) {
+          const userData = querySnapshot.docs[0].data() as
+            | userInterface
+            | undefined;
+          if (userData) {
+            updateUser(userData);
+          }
+          console.log('User data:', userData);
+        } else {
+          console.log('User not found');
         }
-        console.log('User data:', userData);
-      } else {
-        console.log('User not found');
       }
+    } catch (err) {
+      console.log(err);
     }
   };
 

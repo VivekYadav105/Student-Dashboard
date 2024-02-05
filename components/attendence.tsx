@@ -20,20 +20,24 @@ export const AttendenceSection: React.FC = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     const fetchAttendence = async () => {
-      setLoading(true);
-      const attendenceSnapShot = await firestore()
-        .collection('attendence')
-        .where('userID', '==', user?.userID)
-        .get();
-      if (attendenceSnapShot.size > 0) {
-        const attendenceData = attendenceSnapShot.docs[0].data() as
-          | AttendenceData
-          | undefined;
-        if (attendenceData && attendenceData.attendenceData) {
-          setAttendence(attendenceData);
+      try {
+        setLoading(true);
+        const attendenceSnapShot = await firestore()
+          .collection('attendence')
+          .where('userID', '==', user?.userID)
+          .get();
+        if (attendenceSnapShot.size > 0) {
+          const attendenceData = attendenceSnapShot.docs[0].data() as
+            | AttendenceData
+            | undefined;
+          if (attendenceData && attendenceData.attendenceData) {
+            setAttendence(attendenceData);
+          }
         }
+        setLoading(false);
+      } catch (err) {
+        console.log(err);
       }
-      setLoading(false);
     };
     fetchAttendence();
   }, [user?.userID]);
