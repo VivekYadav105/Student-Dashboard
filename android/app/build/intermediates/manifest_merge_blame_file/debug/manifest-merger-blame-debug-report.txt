@@ -20,22 +20,22 @@
 14    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
 14-->C:\Users\vivek\Desktop\studentdash\android\app\src\main\AndroidManifest.xml:6:5-88
 14-->C:\Users\vivek\Desktop\studentdash\android\app\src\main\AndroidManifest.xml:6:22-85
-15    <uses-permission android:name="android.permission.WAKE_LOCK" />
-15-->[:react-native-firebase_auth] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-firebase\auth\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:5-68
-15-->[:react-native-firebase_auth] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-firebase\auth\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:22-65
-16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-16-->[:react-native-firebase_auth] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-firebase\auth\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-79
-16-->[:react-native-firebase_auth] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-firebase\auth\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-76
-17    <!--
-18    This manifest file is used only by Gradle to configure debug-only capabilities
-19    for React Native Apps.
-20    -->
-21    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-21-->[com.facebook.react:react-android:0.73.2] C:\Users\vivek\.gradle\caches\transforms-3\40d20c5853981a6afdeb59ae11366de2\transformed\jetified-react-android-0.73.2-debug\AndroidManifest.xml:16:5-78
-21-->[com.facebook.react:react-android:0.73.2] C:\Users\vivek\.gradle\caches\transforms-3\40d20c5853981a6afdeb59ae11366de2\transformed\jetified-react-android-0.73.2-debug\AndroidManifest.xml:16:22-75
-22    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-22-->[com.facebook.flipper:flipper:0.201.0] C:\Users\vivek\.gradle\caches\transforms-3\ba9a8d370471dde33424b11dce54785b\transformed\jetified-flipper-0.201.0\AndroidManifest.xml:14:5-76
-22-->[com.facebook.flipper:flipper:0.201.0] C:\Users\vivek\.gradle\caches\transforms-3\ba9a8d370471dde33424b11dce54785b\transformed\jetified-flipper-0.201.0\AndroidManifest.xml:14:22-73
+15    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+15-->[:react-native-community_netinfo] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-community\netinfo\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-79
+15-->[:react-native-community_netinfo] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-community\netinfo\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:22-76
+16    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+16-->[:react-native-community_netinfo] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-community\netinfo\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:5-76
+16-->[:react-native-community_netinfo] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-community\netinfo\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:22-73
+17    <uses-permission android:name="android.permission.WAKE_LOCK" />
+17-->[:react-native-firebase_auth] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-firebase\auth\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:5-68
+17-->[:react-native-firebase_auth] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-firebase\auth\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:22-65
+18    <!--
+19    This manifest file is used only by Gradle to configure debug-only capabilities
+20    for React Native Apps.
+21    -->
+22    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+22-->[com.facebook.react:react-android:0.73.2] C:\Users\vivek\.gradle\caches\transforms-3\40d20c5853981a6afdeb59ae11366de2\transformed\jetified-react-android-0.73.2-debug\AndroidManifest.xml:16:5-78
+22-->[com.facebook.react:react-android:0.73.2] C:\Users\vivek\.gradle\caches\transforms-3\40d20c5853981a6afdeb59ae11366de2\transformed\jetified-react-android-0.73.2-debug\AndroidManifest.xml:16:22-75
 23
 24    <permission
 24-->[androidx.core:core:1.9.0] C:\Users\vivek\.gradle\caches\transforms-3\2191288890acb3ddfada3069d3b6bac6\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47

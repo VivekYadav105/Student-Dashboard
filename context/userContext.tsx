@@ -35,6 +35,7 @@ export const UserProvider = props => {
   }
 
   function demoLogin() {
+    console.log('inside');
     return new Promise<boolean | Error>((resolve, reject) => {
       auth()
         .signInWithEmailAndPassword('amit.patel@example.com', '1234567890')

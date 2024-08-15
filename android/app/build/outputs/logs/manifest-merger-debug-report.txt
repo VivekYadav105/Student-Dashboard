@@ -6,6 +6,7 @@ INJECTED from C:\Users\vivek\Desktop\studentdash\android\app\src\debug\AndroidMa
 INJECTED from C:\Users\vivek\Desktop\studentdash\android\app\src\debug\AndroidManifest.xml:2:1-9:12
 INJECTED from C:\Users\vivek\Desktop\studentdash\android\app\src\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.react:flipper-integration:0.73.2] C:\Users\vivek\.gradle\caches\transforms-3\99b915099a077306b39c1081ca68d01e\transformed\jetified-flipper-integration-0.73.2-debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-community_netinfo] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-community\netinfo\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-10:12
 MERGED from [:react-native-firebase_auth] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-firebase\auth\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-firebase_firestore] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-firebase\firestore\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-firebase_storage] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-firebase\storage\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-11:12
@@ -266,6 +267,8 @@ INJECTED from C:\Users\vivek\Desktop\studentdash\android\app\src\debug\AndroidMa
 INJECTED from C:\Users\vivek\Desktop\studentdash\android\app\src\debug\AndroidManifest.xml
 MERGED from [com.facebook.react:flipper-integration:0.73.2] C:\Users\vivek\.gradle\caches\transforms-3\99b915099a077306b39c1081ca68d01e\transformed\jetified-flipper-integration-0.73.2-debug\AndroidManifest.xml:5:5-44
 MERGED from [com.facebook.react:flipper-integration:0.73.2] C:\Users\vivek\.gradle\caches\transforms-3\99b915099a077306b39c1081ca68d01e\transformed\jetified-flipper-integration-0.73.2-debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-community_netinfo] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-community\netinfo\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-community_netinfo] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-community\netinfo\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-firebase_auth] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-firebase\auth\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-firebase_auth] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-firebase\auth\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-firebase_firestore] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-firebase\firestore\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
@@ -474,28 +477,36 @@ MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\viv
 		INJECTED from C:\Users\vivek\Desktop\studentdash\android\app\src\debug\AndroidManifest.xml
 	android:minSdkVersion
 		INJECTED from C:\Users\vivek\Desktop\studentdash\android\app\src\debug\AndroidManifest.xml
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [:react-native-community_netinfo] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-community\netinfo\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-79
+MERGED from [:react-native-firebase_auth] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-firebase\auth\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-79
+MERGED from [:react-native-firebase_auth] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-firebase\auth\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-79
+MERGED from [:react-native-firebase_storage] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-firebase\storage\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-79
+MERGED from [:react-native-firebase_storage] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-firebase\storage\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-79
+MERGED from [com.google.firebase:firebase-auth:22.3.0] C:\Users\vivek\.gradle\caches\transforms-3\9d895bf3b040e3882e34bf86f6fba9e6\transformed\jetified-firebase-auth-22.3.0\AndroidManifest.xml:26:5-79
+MERGED from [com.google.firebase:firebase-auth:22.3.0] C:\Users\vivek\.gradle\caches\transforms-3\9d895bf3b040e3882e34bf86f6fba9e6\transformed\jetified-firebase-auth-22.3.0\AndroidManifest.xml:26:5-79
+MERGED from [com.google.android.recaptcha:recaptcha:18.1.2] C:\Users\vivek\.gradle\caches\transforms-3\238b68e85c6524b4bb6a77aac150ac31\transformed\jetified-recaptcha-18.1.2\AndroidManifest.xml:8:5-79
+MERGED from [com.google.android.recaptcha:recaptcha:18.1.2] C:\Users\vivek\.gradle\caches\transforms-3\238b68e85c6524b4bb6a77aac150ac31\transformed\jetified-recaptcha-18.1.2\AndroidManifest.xml:8:5-79
+MERGED from [com.google.firebase:firebase-firestore:24.10.0] C:\Users\vivek\.gradle\caches\transforms-3\48d26a8163273574a8e713768288ffad\transformed\jetified-firebase-firestore-24.10.0\AndroidManifest.xml:10:5-79
+MERGED from [com.google.firebase:firebase-firestore:24.10.0] C:\Users\vivek\.gradle\caches\transforms-3\48d26a8163273574a8e713768288ffad\transformed\jetified-firebase-firestore-24.10.0\AndroidManifest.xml:10:5-79
+MERGED from [com.google.firebase:firebase-storage:20.3.0] C:\Users\vivek\.gradle\caches\transforms-3\dc213404e79de9a3170f8e5dcab9bed9\transformed\jetified-firebase-storage-20.3.0\AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-storage:20.3.0] C:\Users\vivek\.gradle\caches\transforms-3\dc213404e79de9a3170f8e5dcab9bed9\transformed\jetified-firebase-storage-20.3.0\AndroidManifest.xml:23:5-79
+MERGED from [io.grpc:grpc-android:1.52.1] C:\Users\vivek\.gradle\caches\transforms-3\7dab4cfbbae3b34208323fd2cafef676\transformed\jetified-grpc-android-1.52.1\AndroidManifest.xml:9:5-79
+MERGED from [io.grpc:grpc-android:1.52.1] C:\Users\vivek\.gradle\caches\transforms-3\7dab4cfbbae3b34208323fd2cafef676\transformed\jetified-grpc-android-1.52.1\AndroidManifest.xml:9:5-79
+	android:name
+		ADDED from [:react-native-community_netinfo] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-community\netinfo\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:7:22-76
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from [:react-native-community_netinfo] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-community\netinfo\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:5-76
+MERGED from [com.facebook.flipper:flipper:0.201.0] C:\Users\vivek\.gradle\caches\transforms-3\ba9a8d370471dde33424b11dce54785b\transformed\jetified-flipper-0.201.0\AndroidManifest.xml:14:5-76
+MERGED from [com.facebook.flipper:flipper:0.201.0] C:\Users\vivek\.gradle\caches\transforms-3\ba9a8d370471dde33424b11dce54785b\transformed\jetified-flipper-0.201.0\AndroidManifest.xml:14:5-76
+	android:name
+		ADDED from [:react-native-community_netinfo] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-community\netinfo\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:22-73
 uses-permission#android.permission.WAKE_LOCK
 ADDED from [:react-native-firebase_auth] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-firebase\auth\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:5-68
 MERGED from [:react-native-firebase_storage] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-firebase\storage\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:5-68
 MERGED from [:react-native-firebase_storage] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-firebase\storage\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:5-68
 	android:name
 		ADDED from [:react-native-firebase_auth] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-firebase\auth\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:8:22-65
-uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [:react-native-firebase_auth] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-firebase\auth\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-79
-MERGED from [:react-native-firebase_storage] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-firebase\storage\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-79
-MERGED from [:react-native-firebase_storage] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-firebase\storage\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-79
-MERGED from [com.google.firebase:firebase-auth:22.3.0] C:\Users\vivek\.gradle\caches\transforms-3\9d895bf3b040e3882e34bf86f6fba9e6\transformed\jetified-firebase-auth-22.3.0\AndroidManifest.xml:26:5-79
-MERGED from [com.google.firebase:firebase-auth:22.3.0] C:\Users\vivek\.gradle\caches\transforms-3\9d895bf3b040e3882e34bf86f6fba9e6\transformed\jetified-firebase-auth-22.3.0\AndroidManifest.xml:26:5-79
-MERGED from [com.google.android.recaptcha:recaptcha:18.1.2] C:\Users\vivek\.gradle\caches\transforms-3\238b68e85c6524b4bb6a77aac150ac31\transformed\jetified-recaptcha-18.1.2\AndroidManifest.xml:8:5-79
-MERGED from [com.google.android.recaptcha:recaptcha:18.1.2] C:\Users\vivek\.gradle\caches\transforms-3\238b68e85c6524b4bb6a77aac150ac31\transformed\jetified-recaptcha-18.1.2\AndroidManifest.xml:8:5-79
-MERGED from [com.google.firebase:firebase-firestore:24.10.0] C:\Users\vivek\.gradle\caches\transforms-3\48d26a8163273574a8e713768288ffad\transformed\jetified-firebase-firestore-24.10.0\AndroidManifest.xml:10:5-79
-MERGED from [com.google.firebase:firebase-firestore:24.10.0] C:\Users\vivek\.gradle\caches\transforms-3\48d26a8163273574a8e713768288ffad\transformed\jetified-firebase-firestore-24.10.0\AndroidManifest.xml:10:5-79
-MERGED from [com.google.firebase:firebase-storage:20.3.0] C:\Users\vivek\.gradle\caches\transforms-3\dc213404e79de9a3170f8e5dcab9bed9\transformed\jetified-firebase-storage-20.3.0\AndroidManifest.xml:23:5-79
-MERGED from [com.google.firebase:firebase-storage:20.3.0] C:\Users\vivek\.gradle\caches\transforms-3\dc213404e79de9a3170f8e5dcab9bed9\transformed\jetified-firebase-storage-20.3.0\AndroidManifest.xml:23:5-79
-MERGED from [io.grpc:grpc-android:1.52.1] C:\Users\vivek\.gradle\caches\transforms-3\7dab4cfbbae3b34208323fd2cafef676\transformed\jetified-grpc-android-1.52.1\AndroidManifest.xml:9:5-79
-MERGED from [io.grpc:grpc-android:1.52.1] C:\Users\vivek\.gradle\caches\transforms-3\7dab4cfbbae3b34208323fd2cafef676\transformed\jetified-grpc-android-1.52.1\AndroidManifest.xml:9:5-79
-	android:name
-		ADDED from [:react-native-firebase_auth] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-firebase\auth\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-76
 meta-data#app_data_collection_default_enabled
 ADDED from [:react-native-firebase_app] C:\Users\vivek\Desktop\studentdash\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:9-11:36
 	android:value
@@ -550,10 +561,6 @@ ADDED from [com.facebook.react:react-android:0.73.2] C:\Users\vivek\.gradle\cach
 		ADDED from [com.facebook.react:react-android:0.73.2] C:\Users\vivek\.gradle\caches\transforms-3\40d20c5853981a6afdeb59ae11366de2\transformed\jetified-react-android-0.73.2-debug\AndroidManifest.xml:21:13-37
 	android:name
 		ADDED from [com.facebook.react:react-android:0.73.2] C:\Users\vivek\.gradle\caches\transforms-3\40d20c5853981a6afdeb59ae11366de2\transformed\jetified-react-android-0.73.2-debug\AndroidManifest.xml:20:13-77
-uses-permission#android.permission.ACCESS_WIFI_STATE
-ADDED from [com.facebook.flipper:flipper:0.201.0] C:\Users\vivek\.gradle\caches\transforms-3\ba9a8d370471dde33424b11dce54785b\transformed\jetified-flipper-0.201.0\AndroidManifest.xml:14:5-76
-	android:name
-		ADDED from [com.facebook.flipper:flipper:0.201.0] C:\Users\vivek\.gradle\caches\transforms-3\ba9a8d370471dde33424b11dce54785b\transformed\jetified-flipper-0.201.0\AndroidManifest.xml:14:22-73
 activity#com.google.firebase.auth.internal.GenericIdpActivity
 ADDED from [com.google.firebase:firebase-auth:22.3.0] C:\Users\vivek\.gradle\caches\transforms-3\9d895bf3b040e3882e34bf86f6fba9e6\transformed\jetified-firebase-auth-22.3.0\AndroidManifest.xml:29:9-46:20
 	android:excludeFromRecents

@@ -75,19 +75,21 @@ export const ProfileScreen: React.FC = () => {
             <Text style={styles.fontStyle}>{user?.address}</Text>
           </View>
         </View>
-        <View id="profile-options">
-          <View className="flex-row items-center justify-between pr-10 bg-[#D9DEEF08]">
-            <Text className="p-1 px-2 text-lg font-bold text-purple-500">
+        <View id="profile-options" className="mt-5">
+          {/* <View className="flex-row items-center Pjustify-end pr-4 pt-3 bg-[#D9DEEF08]">
+            <Text
+              style={styles.fontStyle}
+              className="font-poppins text-lg font-bold text-violet-500">
               More Options
+              <Text className="text-violet-500 ps-4">{'>'}</Text>
             </Text>
-            <Text>{'>'}</Text>
-          </View>
-          <View className="items-center p-[10px]">
+          </View> */}
+          <View className="items-center text-black bg-red-400 p-[10px]">
             <TouchableOpacity
               onPress={() => {
                 logOut();
               }}>
-              <View>
+              <View className="bg-red-400">
                 <Text>Log Out</Text>
               </View>
             </TouchableOpacity>

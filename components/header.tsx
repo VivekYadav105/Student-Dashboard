@@ -1,5 +1,5 @@
-import {useNavigation, NavigationState} from '@react-navigation/native';
-import React, {useState} from 'react';
+import {useNavigation} from '@react-navigation/native';
+import React from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 
 interface HeaderProps {
